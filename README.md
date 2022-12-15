@@ -1,2 +1,3 @@
 # TakeUniverse
-Projeto desenvolvido para praticar os conceitos de HTML, CSS, JS na curso de programação web
+
+Projeto desenvolvido para praticar os conceitos de HTML, CSS, JS no curso de programação web da esscola Code Universe
