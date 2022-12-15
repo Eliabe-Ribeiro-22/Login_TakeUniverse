@@ -20,19 +20,19 @@ function toast({ type, isLoggedIn = false }) {
 
 // função que mostra o toast somente quando os campos não estiverem preenchido
 function validateForm() {
-	//return true;
+	
   if (!email.value) {
-//se não existir um email
-    toast({ type: 'email' });
+	//se não existir um email
+    alert("O campo email não pode ficar vazio!")
     return false;
   }
 
   if (!password.value) {
-    toast({ type: 'senha' });
+    alert("O campo senha não pode ficar vazio!")
     return false;
   }
 
-  //toast({ isLoggedIn: true })
-  //return false
+ 
+  return true;
 
 }

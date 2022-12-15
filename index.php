@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    
    <div class="container">
         <div class="illustration">
             <img src="photographer.svg" alt="">
@@ -19,7 +19,9 @@
 
    <div class="login">
             <h2>take<span>universe</span></h2>
-            <form method="POST">
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+            <script src="index.js"></script>
+            <form method="POST" onsubmit="return validateForm()">
                 <div class="form-control">
                     <span>
                         <input type="email" id="email" placeholder="Email" name="email">
@@ -37,32 +39,26 @@
                 </div>
 
             </form>
-			<?php 
-			$login = [
-			'email' => 'developer.eliabe@gmail.com', 
-			'password' => 'admin',
-			];
-			
+			<?php
+            require_once 'usuarios_sistema.php';
 			if($_SERVER["REQUEST_METHOD"] == "POST"){
-                echo "<script>alert('POST = ok')</script>";
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                echo $email;
-                echo "<br>" . $password;
-				if($email == $login['email'] && $password == $login['password']){
-					echo "<script>alert('Login com sucesso')</script>";
+                if($email == $login['email'] && $password == $login['password']){
+					echo "<script>toast({ isLoggedIn: true })</script>";
+                    $email = "";
+                    $password = "";
+                    echo "O metodo do form passa a ser:";
+                    var_dump($_SERVER["REQUEST_METHOD"]);
 				}
 				else{
-					echo '<script>alert("Usuário ou senha errado!")</script>';
+					echo "<script>toast({ type: 'usuário/senha corretamente' });</script>";
 				}
 			}
 			?>
         </div>
-        <h2>Meu email: developer.eliabe@gmail.com</h2>
-    </div>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="index.js"></script>
+        <h2>Email do desenvolvedor do site: developer.eliabe@gmail.com</h2>
+    </div>  
 </body>
 
 </html>
